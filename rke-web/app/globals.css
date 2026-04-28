@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #faf8ff;
+  --color-border: #e8d8f8;
+  --color-active: rgba(54, 1, 133, 0.4);
+
+  --color-title: #1a0033;
+  --color-accent1: #de1a58;
+  --color-accent2: #8f0177;
+
+  --color-text1: #5a3a6a;
+  --color-text2: #9a7aaa;
+  --color-text-border: #8f0177;
+
+  --color-card-bg: #ffffff;
+  --color-card-border: #e8d8f8;
+
+  --color-button1-bg: #f0e8ff;
+  --color-button1-text: #360185;
+  --color-button1-border: #c8a0e8;
+  --color-button2-bg: #fff8e8;
+  --color-button2-text: #8a5a00;
+  --color-button2-border: #f4b342;
+  --color-button3-bg: #fbeaf0;
+  --color-button3-text: #8f0177;
+  --color-button3-border: #8f0177;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-border: #2a0a2a;
+
+    --color-title: #ffffff;
+
+    --color-text1: #c090c0;
+    --color-text2: #6a4a6a;
+
+    --color-card-bg: #130020;
+    --color-card-border: #2a0050;
+
+    --color-button1-bg: rgba(54, 1, 133, 0.1);
+    --color-button1-text: #c090ff;
+    --color-button1-border: #360185;
+    --color-button2-bg: rgba(244, 179, 66, 0.1);
+    --color-button2-text: #f4b342;
+    --color-button2-border: rgba(244, 179, 66, 0.4);
+    --color-button3-bg: rgba(222, 26, 88, 0.1);
+    --color-button3-text: #de1a58;
+    --color-button3-border: rgba(222, 26, 88, 0.4);
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text1);
+}
