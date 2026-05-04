@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 import Header from './components/header'
-import Footer from "./components/footer";
-import "./globals.css";
+import Footer from "./components/footer"
+import MouseGradient from "./components/mouse"
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Raegen Ellis",
@@ -9,15 +10,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout(
-  { children}: Readonly<{children: React.ReactNode}>) 
+  { children }: Readonly<{children: React.ReactNode}>) 
 {
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
+        <MouseGradient />
         <Header />
         {children}
         <Footer />
       </body>
     </html>
-  );
+  )
 }

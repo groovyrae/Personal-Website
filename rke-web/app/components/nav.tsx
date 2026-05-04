@@ -17,40 +17,43 @@ export default function Nav() {
 
     return (
         <>
-            <nav className="hidden md:flex items-center ml-auto gap-1 bg-card-bg/50 border border-card-border rounded-full px-2 py-1.5">
-                {pages.map(({ href, label }) => (
-                    <Link
-                        key={href}
-                        href={href}
-                        className={`text-sm px-4 py-1.5 rounded-full transition-colors ${
-                            pathname === href ? "bg-active text-button1-text" : "text-text1 hover:text-title"
-                        }`}
-                    >
-                        {label}
-                    </Link>
-                ))}
+            <nav className="hidden md:flex items-center justify-between w-full">
+                <span className="px-3 text-sm font-medium text-title">RE</span>
+                <div className="flex items-center">
+                    {pages.map(({ href, label }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className={`text-sm px-4 py-1.5 transition-colors ${
+                                pathname === href ? "border-b border-text1 text-text1" : "text-text1 hover:text-title"
+                            }`}
+                        >
+                            {label}
+                        </Link>
+                    ))}
+                </div>
             </nav>
 
-            <div className={`md:hidden flex flex-col px-2 justify-center bg-card-bg/50 border border-card-border overflow-hidden transition-all duration-300 ease-out ${isOpen ? "rounded-2xl w-full" : "rounded-[50px] w-48"}`}>
-                <nav className={`w-full my-1 relative flex items-center justify-between pl-5 pr-2 py-2`}>
-                    <span className="text-sm text-title">RE</span>
+            <div className="md:hidden absolute w-full">
+                <nav className="w-full px-3 relative flex items-center justify-between">
+                    <span className="text-sm font-medium text-title">RE</span>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="absolute right-2 rounded-full w-9 h-9 flex flex-col items-center justify-center gap-1 bg-active"
+                        className="flex flex-col items-center justify-center gap-1"
                     >
                         <span className={`bg-title block transition-all duration-300 ease-out h-px w-5 rounded-sm ${isOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-0.5'}`} />
                         <span className={`bg-title block transition-all duration-300 ease-out h-px w-5 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
                         <span className={`bg-title block transition-all duration-300 ease-out h-px w-5 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`} />
                     </button>
                 </nav>
-                <nav className={`flex flex-col items-center gap-1 border-t border-active px-2 py-1.5 ${isOpen ? "" : "hidden"}`}>
+                <nav className={`absolute top-full w-full mt-3 py-3 flex flex-col bg-background transition-all duration-300 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`/*`absolute top-full h-4 w-full flex flex-col items-center gap-1 border-t border-active px-2 py-1.5 ${isOpen ? "bg-background/98" : "hidden"}`*/}>
                     {pages.map(({ href, label }) => (
                         <Link
                             key={href}
                             href={href}
                             onClick={() => setIsOpen(false)}
-                            className={`text-sm px-4 py-1.5 rounded-full transition-colors ${
-                                pathname === href ? "bg-active text-button1-text" : "text-text1 hover:text-title"
+                            className={`text-sm px-4 py-1.5 transition-colors ${
+                                pathname === href ? "text-title" : "text-text1 hover:text-title"
                             }`}
                         >
                             {label}
